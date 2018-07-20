@@ -8,6 +8,29 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>06C9C4A9-38CE-441A-8D06-E2F2D8B39B60</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>143D13AC-9AAA-4E18-9EE4-E7179B8657D9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>BD43FE75-04E9-47FF-96C7-6F602FB8F1C0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
 		<array>
 			<dict>
@@ -33,6 +56,43 @@
 	<key>objects</key>
 	<array>
 		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.hidealfred</string>
+			<key>uid</key>
+			<string>143D13AC-9AAA-4E18-9EE4-E7179B8657D9</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>target="{query}"
+
+target_session=$(echo "$target" | cut -d' ' -f1)
+target_window=$(echo "$target" | cut -d' ' -f2)
+target_window=$(echo "$target_window" | cut -d'.' -f1)
+
+/usr/local/bin/tmux switch-client -t "$target_session" \; select-window -t "$target_window"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>06C9C4A9-38CE-441A-8D06-E2F2D8B39B60</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
 			<key>config</key>
 			<dict>
 				<key>alfredfiltersresults</key>
@@ -46,7 +106,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>smux</string>
+				<string>s</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -113,31 +173,19 @@ if __name__ == u"__main__":
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>paths</key>
+				<array>
+					<string>/Applications/iTerm.app</string>
+				</array>
+				<key>toggle</key>
 				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>target="{query}"
-
-target_session=$(echo "$target" | cut -d' ' -f1)
-target_window=$(echo "$target" | cut -d' ' -f2)
-target_window=$(echo "$target_window" | cut -d'.' -f1)
-
-/usr/local/bin/tmux switch-client -t "$target_session" \; select-window -t "$target_window"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.action.launchfiles</string>
 			<key>uid</key>
-			<string>06C9C4A9-38CE-441A-8D06-E2F2D8B39B60</string>
+			<string>BD43FE75-04E9-47FF-96C7-6F602FB8F1C0</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -151,12 +199,26 @@ target_window=$(echo "$target_window" | cut -d'.' -f1)
 			<key>ypos</key>
 			<integer>50</integer>
 		</dict>
+		<key>143D13AC-9AAA-4E18-9EE4-E7179B8657D9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>510</integer>
+			<key>ypos</key>
+			<integer>40</integer>
+		</dict>
 		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
 			<integer>50</integer>
+		</dict>
+		<key>BD43FE75-04E9-47FF-96C7-6F602FB8F1C0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>470</integer>
+			<key>ypos</key>
+			<integer>170</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
